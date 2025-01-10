@@ -6,6 +6,193 @@
     <title>Document</title>
 </head>
 <body>
+    <h1>테이블이란?</h1>
+    <table border="1">
+        <caption>표1. 우리반 성적</caption>
+        <tr>
+            <!-- 굵은 글자로 표시 Or 가운데로. -->
+            <th>이름</th>
+            <th>점수</th>
+        </tr>
+        <tr>
+            <td>김철수</td>
+            <td>60점</td>
+        </tr>
+        <tr>
+            <td>이영희</td>
+            <td>90점</td>
+        </tr>
+        <tr>
+            <td>홍길동</td>
+            <td>20점</td>
+        </tr>
+    </table> 
     
+    <h1>테이블 병합</h1>
+    <table border="1">
+        <!-- rowspan 행 합침. colspan 열 합침. 합친거 주석처리. -->
+        <tr>
+            <td rowspan="3">내용1</td>
+            <td>내용2</td>
+            <td>내용3</td>
+        </tr>
+        <tr>
+            <!-- <td>내용4</td> -->
+            <td colspan="2">내용5</td>
+            <!-- <td>내용6</td> -->
+        </tr>
+        <tr>
+            <!-- <td>내용7</td> -->
+            <td>내용8</td>
+            <td>내용9</td>
+        </tr>
+    </table>
+
+    <h1>행 통합과 열 통합</h1>
+    <table border="1">
+        <tr>
+            <th>1행</th>
+            <td colspan="2">1행 1열</td>
+            <!-- <td>1열</td> -->
+        </tr>
+        <tr>
+            <th rowspan="2">2행</th>
+            <td colspan="2">2행 2열</td>
+            <!-- <td>2열</td> -->
+        </tr>
+        <tr>
+            <!-- <td>2행</td> -->
+            <td colspan="2">3행 2열</td>
+            <!-- <td>2열</td> -->
+        </tr>
+    </table>
+    <table border="1">
+        <tr>
+            <th colspan="2">1열</th>
+            <!-- <td></td> -->
+            <th colspan="4">2열</th>
+            <!-- <td></td>
+            <td></td>
+            <td></td> -->
+        </tr>
+        <tr>
+            <td colspan="2">2행 1열</td>
+            <!-- <td></td> -->
+            <td colspan="2">2행 2열</td>
+            <!-- <td></td> -->
+            <td colspan="2">2행 3열</td>
+            <!-- <td></td> -->
+        </tr>
+    </table>
+    <h1>테이블 구조</h1>
+
+    <table border="1">
+        <thead>
+            <colgroup>
+                <!-- key:value; -->
+                <col width="30%" style="background-color: rebeccapurple;">
+                <col width="70%" >
+            </colgroup>
+            <tr>
+                <th>No</th>
+                <th>이름</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>김가남</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>김나남</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>김다담</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>김라람</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>김마맘</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>김바밤</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>인원수</td>
+                <td>6명</td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <h1>종합 문제</h1>
+    <table border="1">
+        <caption>출장비용 보고서</caption>
+        <thead>
+            <colgroup>
+                <col>
+                <col>
+                <col style="background-color: rebeccapurple;">
+            </colgroup>
+        <tr>
+            <th>대분류</th>
+            <th>중분류</th>
+            <th>금액</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>교통비</td>
+                <td>ktx</td>
+                <td>100000</td>
+            </tr>
+            <tr>
+                <td rowspan="2">식비</td>
+                <td>점심</td>
+                <td>20000</td>
+            </tr>
+            <tr>
+                <!-- <td></td> -->
+                <td>저녁</td>
+                <td>200000</td>
+            </tr>
+            <tr>
+                <td>숙박비</td>
+                <td>모텔</td>
+                <td>50000</td>
+            </tr>
+        </tbody>
+        <tfoot>  
+            <tr>
+                <td colspan="2">총합계</td>
+                <!-- <td></td> -->
+                <td>1900000</td>
+            </tr>
+        </tfoot>
+    </table>
+    <br>
+    <div>콘텐츠1</div>
+    <div>콘텐츠2</div>
+    <span>콘텐츠3</span>
+    <span>콘텐츠4</span>
+    <div>
+        <span>이렇게도</span>
+        <span style="background-color: aqua;">쓸수</span>
+        <span>있나요?</span>
+    </div>
+    
+
+
+
+
+
+
 </body>
 </html>
