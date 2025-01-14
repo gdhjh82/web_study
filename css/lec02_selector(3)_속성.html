@@ -6,6 +6,42 @@
     <title>속성 선택자</title>
 </head>
 <body>
-    
+    <h1>속성 선택자</h1>
+    <style>
+        input[type="text"]{background-color: violet;}
+        #user_id{
+            color: yellow;
+        }
+        a[href="#"]{color: crimson;}
+    </style>
+    <form>
+        <label for="user_id">아이디</label>
+        <input type="text" id="user_id">
+        <br>
+        <label for="user_pw">비밀번호</label>
+        <input type="password" id="user_pw">
+    </form>
+    <a href="#">위로 가기</a>
+    <style>
+        input[type="email"]{background-color: skyblue;}
+        input[type="password"]{background-color: crimson;}
+    </style>
+    <h1>속성 태그 연습</h1>
+    <fieldset>
+        <form>
+            <label for="e">이메일</label>
+            <input type="email" id="e">
+            <br>
+            <label for="p">비밀번호</label>
+            <input type="password" id="p">
+            <br>
+            <label for="n">사용자 등급</label>
+            <input type="number" id="n">
+            <br>
+            <label for="t">사용자 정보</label>
+            <input type="text" id="t">
+        </form>
+    </fieldset>
+
 </body>
 </html>

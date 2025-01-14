@@ -4,8 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>부정 선택자</title>
+    <style>
+        #container > .n:not(span){background-color: aqua;}
+        #container > :not(p){color: crimson;}
+    </style>
 </head>
 <body>
+    <div id="container">
+    <p>Lorem Ipsum is simply dummy</p>
+    <p class="n">Lorem Ipsum is simply dummy</p>
+    <span class="n">Lorem Ipsum is simply dummy</span>
+    <div>Lorem Ipsum is simply dummy</div>
+    </div>
+    <style>
+        h1{color: rgb(0, 0, 255);}
+        h1{color:red;}
+    </style>
+    <h1>확인</h1>
+    <style>
+        p{color: purple !important;}
+        .b{color: red;}
+        #a{color: gold;}
+    </style>
+    <p style="color: green;" class="b" id="a">우선순위</p>
     
 </body>
 </html>
