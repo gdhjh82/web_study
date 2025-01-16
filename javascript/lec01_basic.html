@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lec01_basic.html</title>
+</head>
+<body>
+    <h1>인라인(inline)</h1>
+    <button type="button" 
+            onclick="alert('안녕하세요~');">
+            내장 함수
+    </button>
+    <!-- 2. -->
+    <button type="button"
+            onclick="userFunc();">
+        사용자 정의 함수
+    </button>
+    <script>
+        // 자바 스크립트의 함수 선언
+        /*
+            블록 주석은 이렇게 써요~
+        */
+        function userFunc(){
+            console.log('반가워요~')
+        }
+    </script>
+    <!-- 3. -->
+    <h2>인터널(internal)</h2>
+    <button type="button"
+        id="inBtn">
+        인터널 버튼
+    </button>
+    <script>
+        document.getElementById('inBtn').onclick
+        = function(){
+            alert('HI~')}
+    </script>
+    <!-- 4. -->
+    <h2>익스터널(external)</h2>
+    <button type="button"
+        id="exBtn">
+        익스터널 버튼
+    </button>
+    <script src="../resources/sample.js"></script>
+    <!-- 5. -->
+    <h2>데이터 입출력</h2>
+    <h3>console.log();</h3>
+    <button type="button"
+        onclick="printConsole();">
+        콘솔 테스트
+    </button>
+    <script>
+        function printConsole(){
+            console.log('hello world!');
+        }
+    </script>
+    <br><br>
+    <h2>셀렉 문제 1번</h2>
+    <button type="button"
+        onclick="myname();">
+        나의 이름은?
+    </button>
+    <script>
+        function myname(){
+            console.log('황정현');
+        }
+    </script>
+    <!-- 6. -->
+    <h3>얼럿(알림)</h3>
+    <button type="button"
+        onclick="printAlert();">
+        얼럿 테스트
+    </button>
+    <script>
+        function printAlert(){
+            alert('헬로 월드');
+        }
+    </script>
+    <!-- 셀렉 2번 문제 -->
+    <h3>셀렉 2번 문제</h3>
+    <button type="button"
+        onclick="date();">
+        오늘 날짜
+    </button>
+    <script>
+        function date(){
+            alert('2024년 01월 16일 목요일');
+        }
+    </script>
+    <!-- 7. -->
+    <h2>프롬프트</h2>
+    <input type="button" value="이름 입력"
+    onclick="insertName();">
+    <script>
+        function insertName(){
+            var name 
+                = prompt('이름을 입력하세요.','홍길동');
+                console.log(name);
+        }
+    </script>
+    <!-- 셀렉 3번 문제. -->
+    <h2>셀렉 3번 문제</h2>
+    <button type="button"
+        onclick="masage();">
+        위치
+    </button>
+    <script>
+        function masage(){
+        console.log(prompt('어디에 있으세요?'));
+        }
+    </script>
+    <!-- 8. -->
+    <h2>컨펌</h2>
+    <input type="button" value="확인받기"
+    onclick="printYesOrNo();">
+    <script>
+        function printYesOrNo(){
+        // var fleg = confirm('당신은 로봇입니까?')
+        // console.log(fleg)
+        // if(fleg == true){
+        //     console.log('hi robot~')
+        // }else{
+        //     console.log("사람")
+        if(confirm('당신은 로봇입니까?')){
+            console.log('로봇일때!!');
+        }else{
+            console.log('사람');
+        }
+    }
+    </script>
+
+    <!-- 셀렉 문제 4번 -->
+    <h2>셀렉 문제 4번</h2>
+    <input type="button" value="일요일"
+    onclick="a();">
+    <script>
+        function a(){
+            // var a2 = confirm('오늘은 일요일인가요?')
+            // console.log(a2)
+            if(confirm('오늘은 일요일인가요?')){
+                console.log('O');
+            }else{
+                console.log('x');
+            }
+        }
+    </script>
+    <!-- 9. -->
+    <h2>도큐먼트 라이트</h2>
+    <button onclick="printTag();">바껴라!</button>
+    <script>
+        function printTag(){
+            //document.write('<h1>제목</h1>');
+            //document.write('Lipsum');
+        }
+    </script>
+    <!-- 셀렉 5번 문제 -->
+    <h2>셀렉 5번 문제</h2>
+    <button onclick="change();">제목출력</button>
+    <script>
+        function change(){
+            // document.write('<h1>제목은 역시h1</h1>');
+        }
+    </script>
+</body>
+</html>
