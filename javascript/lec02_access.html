@@ -103,5 +103,131 @@
             }
         }
     </script>
+    <!-- 5. -->
+    <h2>선택자 기준 접근</h2>
+    <button type="button"
+    onclick="practiceQuery()">
+        접근하기
+    </button>
+    <script>
+        function practiceQuery(){
+            var one = document.querySelector('#idTarget');
+            one.style.color='orange';
+            var many = document.querySelectorAll('.b');
+            // 배열 형태로 넘어옴.
+            many[0].style.color='red';
+
+        }
+    </script>
+    <!-- 6. -->
+    <h2>value 속성 사용하기</h2>
+    <input type="text" id="userName">
+    <br>
+    <input type="button" value="가져오기" id="getNameBtn">
+    <input type="button" value="바꿔주기" id="setNameBtn">
+    <script>
+        document.getElementById('getNameBtn').onclick
+        = function(){
+            var userName = document.getElementById('userName').value;
+            alert(userName);
+        }
+        document.getElementById('setNameBtn').onclick
+        = function(){
+            document.getElementById('userName').value += '김철수';
+        }
+    </script>
+    <!-- 7. -->
+    <h2>style 속성 활용하기 </h2>
+    <style>
+        /* #styleBtn{
+            background-color: cornflowerblue;
+        } */
+    </style>
+    <input id="styleBtn" type="button" style="background-color: cornflowerblue;"
+    value="스타일 변신" onclick="changeStyle();">
+    <script>
+        function changeStyle(){
+            // console.log('함수 연결 확인');
+            var st1= document.getElementById('styleBtn').style.backgroundColor;
+            console.log(st1);
+
+            var ele2 = document.getElementById('styleBtn');
+            var st2 = getComputedStyle(ele2).backgroundColor;
+            console.log(st2)
+
+            ele2.style.backgroundColor = 'gold';
+        }
+    </script>
+    <h1>문제 1. 색상 선택후 변경 버튼을 클릭하면 색상이 변경되도록 만들어보세요.</h1>
+    <style>
+        #box{
+            width: 100px;
+            height: 100px;
+            background-color: black;
+        }
+    </style>
+    <input id="c1" type="color">
+    <input id="i1" type="button" value="변경" 
+    onclick="ch1();">
+    <br><br>
+    <div id="box">
+        
+    </div>
+    <!-- 셀렉 1번 -->
+    <script>
+        document.getElementById('i1').onclick 
+        = function co1(){
+            var color1 = document.getElementById('c1').value;
+            document.getElementById('box').style.backgroundColor = color1;
+        }
+    </script>
+    <!-- 셀렉 2번 -->
+    <h2>문제 2. 버튼에 따른 크기 조절이 가능하도록 만들어 보시오.</h2>
+    <style>
+        #box1{
+            width: 100px;
+            height: 100px;
+            background-color: black;
+        }
+    </style>
+    <input id="b1" type="button" value="50x50">
+    <input id="b2" type="button" value="100x100">
+    <input id="b3" type="button" value="200x200"><br><br>
+    <div id="box1"></div>
+    <script>
+        document.getElementById('b1').onclick
+        = function click1(){
+            document.getElementById('box1').style.width='50px';
+            document.getElementById('box1').style.height='50px';
+        }
+        document.getElementById('b2').onclick
+        =function click1(){
+            document.getElementById('box1').style.width='100px';
+            document.getElementById('box1').style.height='100px';
+        }
+        document.getElementById('b3').onclick
+        =function click1(){
+            document.getElementById('box1').style.width='200px';
+            document.getElementById('box1').style.height='200px';
+        }   
+    </script>
+    <h2>innerHTML</h2>
+    <div id="test1">
+        <p>Hello!</p>
+    </div>
+    <div id="test2">안녕하세요~</div>
+    <input type="button" value="가져오기" onclick="getTeg();">
+    <input type="button" value="바꿔주기" onclick="setTeg();">
+    <script>
+        function setTeg(){
+            document.getElementById('test1').innerHTML += '<h1>SIUUUUUUUUUUUU!!!!!!!!!!!!!!!!</h1>';
+        }
+        function getTeg(){
+            var t1 = document.getElementById('test1').innerHTML;
+            var t2 = document.getElementById('test2').innerHTML;
+            console.log(t1);
+            console.log(t2);
+        }
+    </script>
 </body>
 </html>
