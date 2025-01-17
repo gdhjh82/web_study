@@ -220,13 +220,19 @@
     <input type="button" value="바꿔주기" onclick="setTeg();">
     <script>
         function setTeg(){
-            document.getElementById('test1').innerHTML += '<h1>SIUUUUUUUUUUUU!!!!!!!!!!!!!!!!</h1>';
+            document.getElementById('test1').innerText
+            ='<h1>ohhhh</h1>';
+            // document.getElementById('test1').innerHTML += '<h1>SIUUUUUUUUUUUU!!!!!!!!!!!!!!!!</h1>';
         }
         function getTeg(){
-            var t1 = document.getElementById('test1').innerHTML;
-            var t2 = document.getElementById('test2').innerHTML;
-            console.log(t1);
-            console.log(t2);
+            var t3 = document.getElementById('test1').innerText;
+            var t4 = document.getElementById('test1').innerText;
+            console.log(t3);
+            console.log(t4);
+        //     var t1 = document.getElementById('test1').innerHTML;
+        //     var t2 = document.getElementById('test2').innerHTML;
+        //     console.log(t1);
+        //     console.log(t2);
         }
     </script>
 </body>
