@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체 과제</title>
+</head>
+<body>
+    <fieldset>
+        <legend>
+            강아지 정보
+        </legend>
+        <label for="nameInput">이름</label>
+        <input type="text" id="nameInput"><br>
+        <label for="ageInput">나이</label>
+        <input type="text" id="ageInput"><br>
+        <label for="molaInput">특징</label>
+        <input type="text" id="molaInput">
+    </fieldset>
+    <button onclick="addFriend();">등록</button>
+    <button>확인</button>
+    <script>
+        let friendArr = [];
+
+        let addFriend = function(){
+            let a1 = document.getElementById('nameInput').value;
+            let a2 = document.getElementById('ageInput').value;
+            let a3 = document.getElementById('molaInput').value;
+            friendArr.name = a1;
+            friendArr.age = a2;
+            friendArr.personality = a3;
+            console.log(friendArr);
+        }
+
+        let setFriend = function(name,age,personality){
+            let friend = {
+                name : name,
+                age : age,
+                personality : personality
+            };
+            return friend;
+        }
+    </script>
+</body>
+</html>

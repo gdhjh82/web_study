@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열 과제</title>
+</head>
+<body>
+    <h1>1.성적 평균 계산기</h1>
+    <ul>
+        <li>성적 정보를 입력하고 추가 버튼을 누르면 배열에 요소가 추가됩니다.</li>
+        <li>배열의 추가된 요소들의 평균을 계산하여 상단 평균에 반영합니다.</li>
+    </ul>
+    <h1>우리반 성적</h1>
+    <span id="s1"></span>
+    <br>
+    <label for="num">성적</label>
+    <input type="number" id="num">
+    <input type="button" value="추가" onclick="Button();">
+    <script>
+        let arr = new Array();
+        let Button = function(){
+            let num1 = document.getElementById('num');
+            let change = Number(num1.value);
+            arr.push(change);
+            console.log(arr);
+            let num2 = 0;  
+            for(let i = 0; i<arr.length; i++){
+                num2 += arr[i]
+            }
+            let num3 = num2/arr.length;
+            document.getElementById('s1').innerHTML = '평균 : '+num3;
+
+
+        }
+    </script>
+    <h1>2.water melon</h1>
+    <fieldset>
+        <legend>보기</legend>
+        <label id="l1">n o l e m</label><br>
+        <label id="l2">r e t a w</label>
+    </fieldset>
+    <br>
+    <div id="d1" style="border: 2px solid crimson; width: 340px; height: 30px;">
+    </div>
+    <input type="button" value="처리" onclick="b1();">
+    <script>
+        let b1 = function(){
+            let ban = document.getElementById('l1').innerText;
+            let ban2 = document.getElementById('l2').innerText;
+            //console.log(ban,ban2);
+            let arr = ban.split(' ');
+            let arr2 = ban2.split(' ');
+            //console.log(arr,arr2);
+            arr.reverse();
+            arr2.reverse();
+            console.log(arr,arr2);
+            let final = arr2.concat(arr);
+            console.log(final);
+            let result = final.join('');
+            console.log(result);
+            document.getElementById('d1').innerHTML = result;
+
+        }
+    </script>
+
+</body>
+</html>
