@@ -17,7 +17,25 @@
 </head>
 <!-- 4. 화면에 보여주고 싶은 내용 -->
 <body>
-    
+    <input onclick="todayDate();" type="=button" value="날짜 출력">
+    <script>
+        function todayDate(){
+            let today = new Date();
+            let year = today.getFullYear();
+            let mon = today.getMonth()+1;
+            let date = today.getDate();
+            let day = today.getDay();
+            switch(day){
+                case 0 : day = '일'; break;
+                case 1 : day = '월'; break;
+                case 2 : day = '화'; break;
+                case 3 : day = '수'; break;
+                case 4 : day = '목'; break;
+            }
+            alert(`${year}년 ${mon}월 ${date}일 ${day}요일`);
+        }
+    </script>
+
 </body>
 <!-- 5. html 문서 끝 -->
 </html>
