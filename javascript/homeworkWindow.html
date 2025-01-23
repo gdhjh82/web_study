@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <button onclick="timeGo();">버튼</button><br><br><br><br><br> -->
+    <span>2024-6-24</span><br>
+    <h1 id="timeMove"></h1>
+    <script>
+            num1 = setInterval(function(){
+            let toDay = new Date();
+            let hour = toDay.getHours();
+            let min = toDay.getMinutes();
+            let second = toDay.getSeconds(); 
+            document.getElementById('timeMove').innerHTML = hour+' : '+min+' : '+second;
+            },1000);
+    </script>
+    <br><br>
+    <h1>행추가</h1>
+    <input type="text" id="input_text">
+    <button onclick="add();">출력</button>
+    <br>
+    <div id="table_div"></div>
+    <script>
+        const add = function(){
+            let number = 1;
+            const text = document.getElementById('input_text').value;
+            const table = document.createElement('table');
+            // td.setAttribute('style','border: 1px solid black');
+            for(let i = 0 ; i < text ; i++){
+                let tr = document.createElement('tr');
+                for(let j = 0; j < 4 ; j++){
+                let td = document.createElement('td');
+                let num2 = document.createTextNode(number++);
+                td.appendChild(num2);
+                tr.appendChild(td);
+                td.setAttribute('style','border: 1px solid black');
+                }
+                table.appendChild(tr);
+            }
+            //table.appendChild(tr);
+            
+            // const tr = document.createElement('tr');
+            // const td = document.createElement('td');
+            // const tagtext = document.createTextNode('1');
+            // table.appendChild(tr);
+            // tr.appendChild(td);
+             //td.setAttribute('style','border: 1px solid black');
+            // td.appendChild(tagtext);
+            document.getElementById('table_div').appendChild(table);
+        }
+    </script>
+
+</body>
+</html>
