@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트</title>
+</head>
+<body>
+    <h1>이벤트 설정 방식</h1>
+    <h2>1. 인라인 방식</h2>
+    <button onclick="inlineTest(this);">this 테스트</button>
+    <button onclick="inlineFunc(event)">event 테스트</button>
+    <script>
+        //인라인에서 this 사용
+        //함수 호출문에 매개변수로 반드시 this라고 적고
+        //함수 선언부 매개변수명은 원하는 것 적기
+        const inlineTest = function(element){
+            console.log(element);
+        }
+        //인라인에서 event 사용
+        // - 함수 호출문 : event
+        // - 함수 선언부 : 원하는 명칭
+        const inlineFunc = function(e){
+            console.log(e);
+            //console.log(this); // window!!
+        }
+    </script>
+    <h2>2. 고전 방식</h2>
+    <p id="oldTag">고전 방식 테스트</p>
+    <script>
+        // 고전 방식에서 this -> 선언부 사용 불가능
+        //                   -> 함수 내부 호출 가능
+        // 익명함수의 매개변수는 어떤 변수명이든 무조건 event객체가 오도록 세팅되어있음.
+        document.getElementById('oldTag').onclick = function(e){
+            console.log(this);
+            console.log(e.target);
+        }
+        // 고전 방식 -> 여러 이벤트 핸들러 있으면 마지막만 동작
+        // document.getElementById('oldTag').onclick = function(){
+        //     console.log('ㅇㅇ');
+        // }
+    </script>
+    <h2>3. 표준 방식</h2>
+    <p id="standTag">표준 방식 테스트</p>
+    <script>
+        // 익명함수의 매개변수가 어떤 변수명이든 무조건 event 객체
+        document.getElementById('standTag').addEventListener('click',function(e){
+            console.log(e.target);
+            console.log(this);
+        });
+        // 여러 이벤트 핸들러 있어도 다 작동됨.
+        document.getElementById('standTag').addEventListener('click',function(e){
+            console.log('이게 되나?');
+            console.log('이게 되네?');
+        });
+    </script>
+    <!-- 슬랙 문제 -->
+    <label for="input_id">입력 : </label>
+    <input id="input_id" type="text"><br>
+    <button onclick="inline_btn(event);">인라인</button>
+    <button id="btn_id">고전</button>
+    <button id="btn_id2">표준</button>
+    <script>
+        const inline_btn = function(e){
+            document.getElementById('input_id').value = '인라인이 클릭되었습니다!';
+        }
+        document.getElementById('btn_id').onclick = function(e){
+            document.getElementById('input_id').value = '고전이 클릭되었습니다!';
+        }
+        document.getElementById('btn_id2').addEventListener('click',function(e){
+            document.getElementById('input_id').value = '표준이 클릭되었습니다!';
+        })
+    </script>
+    <h1>마우스 이벤트</h1>
+    <style>
+        #mouse_test{
+            border: green 1px solid;
+            width: 200px; height: 200px;
+        }    
+    </style>
+    <div id="mouse_test">
+        타겟
+    </div>
+    <script>
+        //더블클릭 했을때때 실행됨
+        document.getElementById('mouse_test').addEventListener('dblclick',function(){
+            this.style.backgroundColor = 'gold';
+        });
+        // 마우스 들어갔을 때
+        document.getElementById('mouse_test').addEventListener('mouseenter',function(e){
+            e.target.innerHTML += '용구야 잘좀하자!!';
+            e.target.appendChild(txt);
+        });
+        // 마우스 나갔을 때
+        document.getElementById('mouse_test').addEventListener('mouseleave',function(){
+            this.innerHTML += '나가는 중~';
+        });
+    </script>
+    <h1>키 이벤트</h1>
+    <textarea id="keyTag"></textarea>
+    <script>
+        // 모든 키 다 됨 -> ex : backspace, esc
+        document.getElementById('keyTag').addEventListener('keydown',function(e){
+            console.log(e.key);
+            console.log(e.code);
+            if(e.code == 'KeyS'){
+                let img = document.createElement('img');
+                    img.setAttribute('src','../resources/sponge.png');
+                    img.setAttribute('width','50');
+                    e.target.insertAdjacentElement('afterend',img);
+            }
+        });
+        // 입력 가능한 키
+        document.getElementById('keyTag').addEventListener('keypress',function(e){
+            if(e.code == 'KeyD'){
+                let img = document.createElement('img');
+                    img.setAttribute('src','../resources/dung.png');
+                    img.setAttribute('width','50');
+                    e.target.insertAdjacentElement('beforebegin',img);
+            }
+        });
+        // 눌렀다 때면 발생
+        document.getElementById('keyTag').addEventListener('keyup',function(e){
+            if(e.key == 'CapsLock'){
+                alert('대문자 쓰면 로그인 안될껄요?');
+            }
+            
+        });
+    </script>
+    <!-- 슬랙 문제 2번 -->
+    <label for="searchText">검색어</label>
+    <input type="text" id="searchText">
+    <input type="button" value="검색" onclick="searchPerson();">
+    <script>
+    let persons = [
+        {name:'김철수',age:17},
+        {name:'이영희',age:23},
+        {name:'홍길동',age:35}
+    ];
+    let searchPerson = function(){
+        let searchText = document.getElementById('searchText').value;
+        let resultText = '존재하지 않는 회원입니다.';
+        for(let i = 0 ; i < persons.length ; i++){
+            if(persons[i]['name'] == searchText){
+                resultText = `${persons[i].name}님은 ${persons[i].age}살 입니다.`;
+                break;
+            }
+        }
+        alert(resultText); 
+    }
+    document.getElementById('searchText').addEventListener('keyup',function(e){
+        if(e.code == 'Enter'){
+            // alert('왜 모르겠냐?');
+            let searchText = document.getElementById('searchText').value;
+            let resultText = '존재하지 않는 회원입니다.';
+            for(let i = 0 ; i < persons.length ; i++){
+            if(persons[i]['name'] == searchText){
+                resultText = `${persons[i].name}님은 ${persons[i].age}살 입니다.`;
+                break;
+            }
+        }
+        alert(resultText); 
+        }
+    })
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

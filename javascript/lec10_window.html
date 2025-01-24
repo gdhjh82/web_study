@@ -320,6 +320,78 @@
             move2.insertAdjacentElement('beforebegin',move1);
         }    
     </script>
+    <h1>class 속성 추가 및 삭제</h1>
+    <style>
+        .colorful{
+            border: 3px double deepskyblue;
+            background-color: aliceblue;
+        }
+    </style>
+    <p id="standard"> 기준p 태그</p>
+    <button onclick="addClassTest();">colorful 클래스 추가</button> <br>
+    <button onclick="removeClassTest();">colorful 클래스 삭제</button>
+    <script>
+        const addClassTest = function(){
+            // 태그에 접근하고 -> 추가
+            document.getElementById('standard').classList.add('colorful');
+        }
+        const removeClassTest = function(){
+            //태그에 접근하고 -> 제거
+            document.getElementById('standard').classList.remove('colorful');
+        }   
+    </script>
+    <h1>주변태그 접근</h1>
+    <div id="searchTag">
+        <h2>얘는 h2에요~</h2>
+        <ul>
+            <li>가</li>
+            <li>나</li>
+            <li>다</li>
+        </ul>
+        <button id="search_btn">주변 조회</button>
+        <button id="remove_btn">태그 제거</button>
+    </div>
+    <script>
+        let trueOrFalse = true;
+        document.getElementById('remove_btn').onclick = function(){
+            if(trueOrFalse){
+                let  deleteElement = this.parentElement.children[1];
+                deleteElement.remove();
+                trueOrFalse = false;
+            }
+        }
+
+        document.getElementById('search_btn').onclick = function(){
+            const tar = this;
+            console.log(tar);
+            const parent = tar.parentElement;
+            console.log(tar,parent);
+        
+            const children = parent.children;
+            console.log(children);
+            // 동일
+            const arr = this.parentElement.children;
+            console.log(arr);
+            for(let i = 0 ; i < arr.length ; i++){
+                console.log(i+" : "+arr[i].tagName);
+                if(arr[i].tagName == 'H2'){
+                    arr[i].style.backgroundColor = 'gold';
+                }else if(arr[i].tagName == 'UL'){
+                    const li = arr[i].children;
+                    console.log(li);
+                }
+            }
+
+            const firstLi = this.parentElement.children[1].children[0];
+            console.log(firstLi);
+            const secondLi = firstLi.nextElementSibling;
+            console.log(secondLi);
+
+            const ulTarget = document.getElementById('searchTag').children[1].previousElementSibling;
+            console.log(ulTarget);
+        }
+    </script>
+
 
 
 
