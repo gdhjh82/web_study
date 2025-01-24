@@ -163,6 +163,92 @@
         }
     })
     </script>
+    <h1>form 이벤트</h1>
+    <form>
+        <input type="text" id="input1">
+        <input type="password" id="input2">
+    </form>
+    <script>
+        document.querySelector('#input1').addEventListener('focus',function(e){
+            e.target.style.backgroundColor='gold';
+        });
+        document.querySelector('#input1').addEventListener('blur',function(e){
+            e.target.style.backgroundColor = 'white';
+        });
+    </script>
+    <h1>버블링 : 자식 -> 부모님 -> 조상님으로 이벤트가 전달됨</h1>
+    <style>
+        #ancestor{border: 2px solid orange;}
+        #parent{border : 4px dotted cadetblue;}
+        #child{border:4px double crimson}
+    </style>
+    <form id="ancestor">
+        조상님
+        <div id="parent">
+            부모님
+            <p id="child">자식</p>
+        </div>
+    </form>
+    <script>
+        document.getElementById('child').addEventListener('click',function(e){
+            e.stopPropagation();
+            alert('자식');
+        });
+        
+        document.getElementById('parent').addEventListener('click',function(e){
+            e.stopPropagation();
+            alert('부모님');
+        });
+        
+        document.getElementById('ancestor').addEventListener('click',function(e){
+            e.stopPropagation();
+            alert('조상님');
+        });
+    </script>
+    <a id="noClick" href="https://www.naver.com">테스트</a>
+    <script>
+        document.getElementById('noClick').addEventListener('click',function(e){
+            e.preventDefault();
+            alert('네이버로 안 가자~');
+        })
+    </script>
+    <form id="testFrm">
+        <input type="text" name="user_data" minlength="4" maxlength="10">
+        <input type="submit" value="제출">
+    </form>
+    <script>
+        document.getElementById('testFrm').onsubmit = function(){
+            const val = document.querySelector('input[name=user_data]').value;
+            if(val.length < 4){
+                alert('데이터는 4글자 이상이어야 해요.');
+                return false;
+            }else{
+                return true;
+            }
+        }
+    </script>
+    <h3>유효성 검사</h3>
+    <style>
+        .pw_vali{display: none;}
+        .pw_vali.pass{display:inline;color: green;}
+        .pw_vali.fail{display: inline;color: red;}
+    </style>   
+    <form id="joinForm">
+        <input type="password" placeholder="비밀번호" name="user_pw"><br>
+        <input type="password" placeholder="비밀번호 확인" name="user_pw_check"><br>
+        <span class="pw_vali"></span>
+    </form>
+    <script>
+        document.getElementsByName('user_pw_check')[0].addEventListener('blur',function(event){
+            const val = document.querySelector('input[name=user_pw]').value;
+            const val2 = document.querySelector('input[name=user_pw_check]').value;
+            if(val == val2){
+                
+            }else{
+
+            }
+        });
+    </script>
 
 
 
