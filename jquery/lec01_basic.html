@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../resources/jquery-3.7.1.js"></script>
+</head>
+<body>
+    <script>
+        // 위치 상관없이 불러옴.
+        $(document).ready(function(){
+            console.log($('p').html());
+        });
+        // 위와 같은 코드임.
+        $(function(){
+            console.log($('p').text());
+        })
+    </script>
+    <p>클릭하세요!</p>
+    <script>
+        document.getElementsByTagName('p')[0].onclick = function(){
+            alert('테스트1');
+        }
+        $('p').click(function(){
+            alert('테스트2');
+        })
+        </script>
+        <script>
+            // 여러개 써도 마지막 것만 실행됨. 
+            window.onload = function(){
+                console.log('onload(1)')
+            }
+        </script>
+    <!-- 첫 번째 방법 -->
+    <!-- <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script> -->
+    <!-- 두 번째 방법 -->
+    <!-- <script src="../resources/jquery-3.7.1.js"></script> -->
+</body>
+</html>
