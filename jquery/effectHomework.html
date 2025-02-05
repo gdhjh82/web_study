@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../resources/jquery-3.7.1.js"></script>
+</head>
+<body>
+    <style>
+        #notice_div {
+    width: 300px;
+    padding: 20px;
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    display: none; /* 초기에는 숨김 */
+    }
+    </style>
+    <button id="btn">공지 보기</button>
+    <div id="notice_div">
+        <p>📢 공지사항: 서버 점검으로 인해 내일 02:00~04:00 서비스가 중단됩니다.</p>
+    </div>
+    <script>
+        
+        $(function(){
+            $('#btn').click(function(){
+                $('#notice_div').toggle(1000,function(){
+                    if($('#btn').text() == "공지 보기"){
+                        $('#btn').text('공지 숨기기');
+                    }else{
+                        $('#btn').text('공지 보기');
+                    }
+                });
+                // if(a){
+                //     $('#btn').text('공지 숨기기');
+                //     $('#notice_div').toggle(1000);
+                // }else if(){
+                //     $('#btn').text('공지 보기');
+                //     $('#notice_div').toggle(1000);
+                // }
+            })
+        })
+    </script>
+</body>
+</html>
